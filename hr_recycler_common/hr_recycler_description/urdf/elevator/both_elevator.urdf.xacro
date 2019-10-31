@@ -21,13 +21,13 @@
         <limit effort="1000.0" lower="0.0" upper="0.25" velocity="1.0"/>
     </joint>
 
-    <transmission name="${prefix}both_elevator_transmission">
+    <transmission name="${prefix}_both_elevator_transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_both_elevator_joint">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="${prefix}_both_elevator_motor">
-        <hardwareInterface>hardware_interface/PositionActuatorInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityActuatorInterface</hardwareInterface>
         <mechanicalReduction>${traction_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-	<!-- roslaunch arguments --> 
+	<!-- roslaunch arguments -->
 	<arg name="debug" default="false"/>
 	<arg name="launch_rviz" default="false"/>
 
@@ -14,9 +14,8 @@
 		<arg name="headless" value="false"/>
 		<arg name="gui" value="true"/>
 	</include>
-    
-    <node name="urdf_spawner_hr_recycler_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-		 args="-z 0.2 -urdf -param robot_description -model hr_recycler" />
-	
-	
+
+  <node name="urdf_spawner_hr_recycler_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+		args="-z 0.2 -urdf -param robot_description -model hr_recycler" />
+
 </launch>

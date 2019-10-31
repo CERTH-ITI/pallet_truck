@@ -9,8 +9,15 @@
         <robotParam>robot_description</robotParam>
         <controlPeriod>0.001</controlPeriod>
 	    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<legacyModeNS>true</legacyModeNS>
       </plugin>
    </gazebo>
+
+	   <!--gazebo>
+	     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+	       <robotSimType>steer_bot_hardware_gazebo/SteerBotHardwareGazebo</robotSimType>
+	     </plugin>
+	   </gazebo-->
    </xacro:macro>
 
    <xacro:macro name="gazebo_colors" params="prefix">
@@ -22,8 +29,29 @@
 			<material>Gazebo/Grey</material>
 		</gazebo>
 
+		<!--gazebo reference="${prefix}base_helper_wheel_link">
+			<mu1 value="5.0"/>
+			<mu2 value="0.5"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<fdir1 value="1 0 0"/>
+			<material>Gazebo/Grey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo-->
+
+		<!--gazebo reference="${prefix}base_helper_link_2_link">
+			<mu1 value="5.0"/>
+			<mu2 value="0.5"/>
+			<kp value="10000000.0" />
+			<kd value="1.0" />
+			<fdir1 value="1 0 0"/>
+			<material>Gazebo/Grey</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo-->
+
 		<gazebo reference="$(arg prefix)front_cover_link">
 			<material>Gazebo/Black</material>
 		</gazebo>
+
 	</xacro:macro>
 </robot>

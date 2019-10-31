@@ -107,12 +107,6 @@
       <origin xyz="${camera_x} ${camera_y} ${camera_z}" rpy="0 0 ${PI}"/>
   </xacro:sensor_r430>
 
-  <!--gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotSimType>steer_bot_hardware_gazebo/SteerBotHardwareGazebo</robotSimType>
-    </plugin>
-  </gazebo-->
-
 	<!-- Gazebo ros control pluggins -->
 	<xacro:ros_control/>
 

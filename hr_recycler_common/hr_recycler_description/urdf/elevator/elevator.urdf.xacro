@@ -2,7 +2,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
-	<xacro:include filename="$(find hr_recycler_description)/urdf/elevator/elevator.transmission.xacro"/>
 	<xacro:include filename="$(find hr_recycler_description)/urdf/elevator/elevator.gazebo.xacro"/>
 
 	<xacro:macro name="elevator_platform" params="prefix parent hq *origin">
@@ -43,6 +42,7 @@
 			<axis xyz="0 0 1"/>
 			<limit effort="1000.0" lower="0.0" upper="1.0" velocity="1"/>
 	</joint>
+
 	<link name="${prefix}_platform_link">
 		<visual>
 			<origin xyz="-${fork_length/2} 0 0" rpy="0 0 0" />
@@ -79,23 +79,33 @@
 	</link>
 
 	<joint name="${prefix}_support_wheel_joint" type="continuous">
-			<origin xyz="${support_wheel_joint_x} ${support_wheel_joint_y} ${support_wheel_joint_z}" rpy="0 0 0"/>
+			<origin xyz="${support_wheel_joint_x} ${support_wheel_joint_y} ${support_wheel_joint_z+0.005}" rpy="0 0 0"/>
 			<parent link="${prefix}_platform_link"/>
 			<child link="${prefix}_support_wheel_link" />
-			<limit effort="1000.0" velocity="1.0"/>
+			<limit effort="1000.0" velocity="100.0"/>
 			<axis xyz="0 1 0" rpy="0 0 0" />
 	</joint>
 
+	<transmission name="${prefix}_support_wheel_joint_transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="${prefix}_support_wheel_joint">
+			<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="${prefix}_both_elevator_motor">
+			<hardwareInterface>hardware_interface/VelocityActuatorInterface</hardwareInterface>
+			<mechanicalReduction>${traction_mechanical_reduction}</mechanicalReduction>
+		</actuator>
+	</transmission>
 
 	<link name="${prefix}_support_wheel_link">
 		<visual>
-				<origin xyz="0 0 0.01" rpy="${M_PI/2} 0 0" />
+				<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
 				<geometry>
 					<cylinder radius="${support_wheel_radius}" length="${support_wheel_length}"/>
 				</geometry>
 		</visual>
 		<collision>
-			<origin xyz="0 0 +0.01" rpy="${M_PI/2} 0 0" />
+			<origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
 			<geometry>
 				<cylinder radius="${support_wheel_radius}" length="${support_wheel_length}"/>
 			</geometry>
