@@ -11,7 +11,7 @@
   <xacro:property name="base_length" value="0.679" />
   <xacro:property name="base_width" value="0.754" />
   <xacro:property name="base_height" value="0.533" />
-  <xacro:property name="base_mass" value="25.0"/>
+  <xacro:property name="base_mass" value="50.0"/>
   <xacro:property name="visual_base_link_z" value="${wheel_radius+base_height/2.0+separation_wheel_box}" />
 
   <xacro:property name="fork_length" value="1.176" />
@@ -28,7 +28,6 @@
   </xacro:macro>
 
   <!-- BASE FOOTPRINT -->
-  <xacro:if value="${publish_bf}">
     <link name="${prefix}base_footprint">
       <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
@@ -43,7 +42,6 @@
       <parent link="${prefix}base_footprint"/>
       <child link="${prefix}base_link" />
     </joint>
-  </xacro:if>
 
   <!-- BASE_LINK -->
   <link name="${prefix}base_link">
@@ -68,91 +66,6 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- BASE HELPER! -->
-  <!-- Two small spheres that help the to not tip over -->
-
-  <joint name="${prefix}base_helper_joint" type="continuous">
-    <origin xyz="-${base_length/2.0+0.5} ${base_width/2.0-wheel_radius/2.0} -${wheel_radius/2.0}" rpy="0 0 0" />
-    <parent link="${prefix}base_link"/>
-    <child link="${prefix}base_helper_link" />
-    <axis xyz="1 0 0" rpy="0 0 0" />
-  </joint>
-
-  <!--transmission name="${prefix}base_helper_joint_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${prefix}base_helper_joint">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="${prefix}base_helper_joint_motor">
-      <hardwareInterface>hardware_interface/VelocityActuatorInterface</hardwareInterface>
-      <mechanicalReduction>${steer_mechanical_reduction}</mechanicalReduction>
-    </actuator>
-  </transmission-->
-
-  <link name="${prefix}base_helper_link">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-         <sphere radius="${wheel_radius/2.0}"/>
-      </geometry>
-       <material name="darkgrey">
-         <color rgba="0.1 0.1 0.1 1"/>
-       </material>
-     </visual>
-     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="${wheel_radius/2.0}"/>
-      </geometry>
-      </collision>
-      <inertial>
-        <mass value="${base_mass}" />
-        <origin xyz="0 0 0" />
-        <box_inertia  m="${base_mass}" x="${base_length}" y="${base_width}" z="${base_height}"/>
-      </inertial>
-    </link>
-
-    <joint name="${prefix}base_helper_2_joint" type="continuous">
-      <origin xyz="-${base_length/2.0+0.5} -${base_width/2.0-wheel_radius/2.0} -${wheel_radius/2.0}" rpy="0 0 0" />
-      <parent link="${prefix}base_link"/>
-      <child link="${prefix}base_helper_2_link" />
-      <axis xyz="1 0 0" rpy="0 0 0" />
-    </joint>
-
-    <!--transmission name="${prefix}base_helper_2_joint_trans">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="${prefix}base_helper_2_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="${prefix}base_helper_2_joint_motor">
-        <hardwareInterface>hardware_interface/VelocityActuatorInterface</hardwareInterface>
-        <mechanicalReduction>${steer_mechanical_reduction}</mechanicalReduction>
-      </actuator>
-    </transmission-->
-
-    <link name="${prefix}base_helper_2_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <sphere radius="${wheel_radius/2.0}"/>
-        </geometry>
-         <material name="darkgrey">
-           <color rgba="0.1 0.1 0.1 1"/>
-         </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <sphere radius="${wheel_radius/2.0}"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <mass value="${base_mass}" />
-        <origin xyz="0 0 0" />
-        <box_inertia  m="${base_mass}" x="${base_length}" y="${base_width}" z="${base_height}"/>
-      </inertial>
-    </link>
 
   </xacro:macro>
 </robot>

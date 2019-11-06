@@ -44,10 +44,6 @@
   <xacro:property name="base_height" value="0.533" />
   <xacro:property name="base_width" value="0.754" />
 
-	<!-- Castor paramters -->
-	<!--xacro:property name="omni_x" value="0.296"/>
-	<xacro:property name="omni_y" value="0.249"/>
-	<xacro:property name="omni_z" value="0.010"/-->
 
 	<!-- Flag to select the high or low quality model -->
 	<xacro:property name="hq" value="true" />
@@ -73,8 +69,10 @@
 	<!-- ******************* -->
 	<xacro:property name="elevator_x" value="-${base_length/2.0}" />
 	<xacro:property name="elevator_y" value="0.0" />
-	<xacro:property name="elevator_z" value="0.0" />
+	<xacro:property name="elevator_z" value="${-wheel_radius/2.0+fork_height/2.0}" />
   <xacro:property name="fork_length" value="1.176" />
+  <xacro:property name="fork_height" value="0.015" />
+
 
 	<!-- *************** -->
 	<!-- Robots Elements -->
@@ -108,6 +106,13 @@
   </xacro:sensor_r430>
 
 	<!-- Gazebo ros control pluggins -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/hr_recycler</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
 	<xacro:ros_control/>
 
 
