@@ -10,15 +10,19 @@
 
 	<!-- Load joint controller configurations from YAML file to parameter server -->
 	<rosparam file="$(find hr_recycler_control)/config/hr_recycler_control.yaml" command="load"/>
+  <rosparam file="$(find hr_recycler_control)/config/hr_recycler_pid.yaml" command="load"/>
 
+  <!--steer_controller
+  traction_controller-->
 	<!-- load the controllers -->
 	<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
 		output="screen" args="
                         elevator_controller
 						            joint_read_state_controller
-                        mobile_controller
                         left_wheel_traction_controller
                         right_wheel_traction_controller
+                        mobile_controller
+                        joint_read_command_controller
 						  --shutdown-timeout 1
 						  ">
 	</node>

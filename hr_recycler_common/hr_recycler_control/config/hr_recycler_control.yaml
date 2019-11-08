@@ -12,14 +12,12 @@ mobile_controller:
   # Odom frame_id
   odom_frame_id: hr_recycler_odom
   enable_odom_tf: true
-  wheel_separation_h :  0.01         
-  wheel_radius : 0.1
-
+  wheel_separation_h: 2         
+  wheel_radius: 0.1
 
 steer_controller:
   type: position_controllers/JointPositionController
   joint: hr_recycler_backwheel_steer_joint
-
 
 left_wheel_traction_controller:
   type: velocity_controllers/JointVelocityController
@@ -39,4 +37,8 @@ elevator_controller:
 
 joint_read_state_controller:
   type: joint_state_controller/JointStateController
+  publish_rate: 100.0
+
+joint_read_command_controller:
+  type: joint_read_command_controller/JointReadCommandController
   publish_rate: 100.0
