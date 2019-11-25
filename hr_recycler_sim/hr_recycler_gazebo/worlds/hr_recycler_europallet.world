@@ -27,8 +27,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>1000</mu>
+                <mu2>500</mu2>
               </ode>
               <torsional>
                 <ode/>
@@ -86,9 +86,6 @@
       <real_time>98 525102166</real_time>
       <wall_time>1573645843 778638116</wall_time>
       <iterations>53287</iterations>
-      <model name='euro_pallet_0'>
-        <pose frame=''>-10.8876 -0.26161 0.071982 0 2.3e-05 -1.57991</pose>
-        <scale>1 1 1</scale>
         <model name='euro_pallet'>
           <pose frame=''>-4.62448 0.018429 0.071993 0 2.3e-05 -1.57991</pose>
           <scale>1 1 1</scale>
@@ -98,7 +95,6 @@
             <acceleration>-0.028826 -3.16301 -0.912712 2.79339 -0.665188 2e-06</acceleration>
             <wrench>-0.576516 -63.2601 -18.2542 0 -0 0</wrench>
           </link>
-        </model>
       </model>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
@@ -114,7 +110,6 @@
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
     </state>
-    <model name='euro_pallet_0'>
       <model name='euro_pallet'>
         <link name='link'>
           <pose frame=''>0 0 0 0 -0 0</pose>
@@ -166,10 +161,6 @@
         </link>
         <pose frame=''>-0.337095 6.2603 3e-06 0 -0 0</pose>
       </model>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>3.25558 -6.26415 0.071998 0 -7e-06 -0.013016</pose>
-    </model>
     <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose frame=''>-3.68793 -8.35797 3.05193 0 0.341796 1.36758</pose>

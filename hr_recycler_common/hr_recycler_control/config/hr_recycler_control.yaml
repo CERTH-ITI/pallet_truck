@@ -49,3 +49,6 @@ elevator_controller:
 joint_read_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 100.0
+
+joint_read_command_controller:
+  type: joint_read_command_controller/JointReadCommandController

@@ -8,7 +8,7 @@
 	<xacro:property name="fork_length" value="1.176" />
 	<xacro:property name="fork_width" value="0.11" />
 	<xacro:property name="fork_height" value="0.015" />
-	<xacro:property name="fork_mass" value="2.0" />
+	<xacro:property name="fork_mass" value="20.0" />
 
 	<xacro:property name="fork_separation" value="0.116" />
 

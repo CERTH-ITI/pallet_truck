@@ -47,13 +47,17 @@
       <collision>
       <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
       <geometry>
-         <sphere radius="${omni_wheel_radius*0.35}"/>
+         <!--<sphere radius="${omni_wheel_radius*0.35}"/>-->
+            <cylinder length="${omni_wheel_height}" radius="${omni_wheel_radius*0.35}" />
       </geometry>
       <surface>
         <friction>
           <ode>
-            <mu>0.0001</mu>
-            <mu2>0.0001</mu2>
+                <mu>100.000000</mu>
+                <mu2>0.000000</mu2>
+                <!--<fdir1>0.000000 0.000000 0.000000</fdir1>-->
+                <slip1>0.000000</slip1>
+                <slip2>0.000000</slip2>
           </ode>
         </friction>
 			</surface>
