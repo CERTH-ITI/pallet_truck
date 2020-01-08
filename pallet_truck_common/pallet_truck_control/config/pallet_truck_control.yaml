@@ -9,6 +9,7 @@ mobile_controller:
   enable_odom_tf: true
   wheel_separation_h : 1.3725
   wheel_radius : 0.125
+  wheel_radius_multiplier: 1
 
 steer_controller:
   type: position_controllers/JointPositionController
@@ -18,6 +19,14 @@ traction_controller:
   type: velocity_controllers/JointVelocityController
   joint: pallet_truck_front_wheel_traction_joint
 
+right_elevator_wheel_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: pallet_truck_right_wheel_joint
+
+left_elevator_wheel_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: pallet_truck_left_wheel_joint
+
 elevator_controller:
   type: position_controllers/JointPositionController
   joint: pallet_truck_elevator_joint
@@ -25,3 +34,5 @@ elevator_controller:
 joint_read_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 100.0
+
+
