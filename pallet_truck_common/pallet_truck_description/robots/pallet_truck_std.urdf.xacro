@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <robot name="pallet_truck" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-
 	<!-- ***************** -->
 	<!-- Imported elements -->
 	<!-- ***************** -->
@@ -90,7 +88,7 @@
 	<!-- *************** -->
 	<!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
 
-	<xacro:arg name="prefix" default="pallet_truck_"/>
+	<xacro:arg name="prefix" default="pallet_truck/"/>
   <xacro:property name="prefix" value="$(arg prefix)" />
 
 	<xacro:pallet_truck prefix="${prefix}" publish_bf="true"/> <!-- BASE -->
@@ -130,7 +128,15 @@
   <xacro:sensor_sick_s300 prefix="${prefix}sick" parent="${prefix}front_case_link">
       <origin xyz="${front_laser_x} ${front_laser_y} ${front_laser_z}" rpy="${PI} 0 0"/>
   </xacro:sensor_sick_s300>
-
+	
+  <xacro:sensor_r430 prefix="${prefix}camera_left" parent="${prefix}left_fork_wheel_link">
+  	<origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
+  </xacro:sensor_r430>
+	
+	<xacro:sensor_r430 prefix="${prefix}camera_right" parent="${prefix}right_fork_wheel_link">
+    <origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
+  </xacro:sensor_r430>
+	
   <!-- REGISTERS -->
   <!-- Front -->
   <joint name="${prefix}front_register_joint" type="fixed">
