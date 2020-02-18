@@ -2,7 +2,7 @@ mobile_controller:
   type: ackermann_drive_controller/AckermannDriveController
   traction:
     front_right:
-      joint_name: pallet_truck_traction_joint
+      joint_name: $(arg prefix)traction_joint
       max_speed: 20.0 # rad/s
     front_left:
       joint_name: front_left_wheel_traction_joint
@@ -15,7 +15,7 @@ mobile_controller:
       max_speed: 20.0 # rad/s
   steer:
     front_right:
-      joint_name: pallet_truck_steer_joint
+      joint_name: $(arg prefix)steer_joint
       min_angle: -2.6 # rads
       max_angle: 2.6
     front_left:
@@ -34,8 +34,8 @@ mobile_controller:
   linear_acceleration_limit: 1.0
   angular_speed_limit: 2.0
   angular_acceleration_limit: 2.0
-  odom_frame: pallet_truck_odom
-  robot_base_frame: pallet_truck_base_footprint
+  odom_frame: $(arg prefix)odom
+  robot_base_frame: $(arg prefix)base_footprint
   odom_broadcast_tf: true
   odom_topic: odom
   command_topic: cmd_vel

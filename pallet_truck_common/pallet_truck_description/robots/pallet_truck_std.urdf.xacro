@@ -129,6 +129,7 @@
       <origin xyz="${front_laser_x} ${front_laser_y} ${front_laser_z}" rpy="${PI} 0 0"/>
   </xacro:sensor_sick_s300>
 	
+	<!-- Depth cameras inside forks for pallet detection -->
   <xacro:sensor_r430 prefix="${prefix}camera_left" parent="${prefix}left_fork_wheel_link">
   	<origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
   </xacro:sensor_r430>
@@ -136,6 +137,15 @@
 	<xacro:sensor_r430 prefix="${prefix}camera_right" parent="${prefix}right_fork_wheel_link">
     <origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
   </xacro:sensor_r430>
+	
+	<!-- RGB-D camera for human detection -->
+	<!-- <xacro:sensor_r430 prefix="${prefix}camera_front" parent="${prefix}front_register_link">
+    <origin xyz="0.02 0 0" rpy="0 0 0"/>
+  </xacro:sensor_r430> -->
+	
+	<!-- <xacro:sensor_orbbec_astra prefix="${prefix}camera_front" parent="${prefix}front_register_link">
+    <origin xyz="0.02 0 0" rpy="0 0 0"/>
+  </xacro:sensor_orbbec_astra> -->
 	
   <!-- REGISTERS -->
   <!-- Front -->
