@@ -144,13 +144,14 @@
   </xacro:sensor_r430>
 	
 	<!-- RGB-D camera for human detection -->
+	
 	<!-- <xacro:sensor_r430 prefix="${prefix}camera_front" parent="${prefix}front_register_link">
-    <origin xyz="0.02 0 0" rpy="0 0 0"/>
+    <origin xyz="0.02 0 0.08" rpy="0 -0.785398163 0"/>
   </xacro:sensor_r430> -->
 	
-	<!-- <xacro:sensor_orbbec_astra prefix="${prefix}camera_front" parent="${prefix}front_register_link">
-    <origin xyz="0.02 0 0" rpy="0 0 0"/>
-  </xacro:sensor_orbbec_astra> -->
+	<xacro:sensor_r430 prefix="${prefix}camera_front" parent="${prefix}rplidar_laser_base_link">
+    <origin xyz="0.045 0 -0.09" rpy="0 -0.34906585 0"/>
+  </xacro:sensor_r430>
 	
   <!-- REGISTERS -->
   <!-- Front -->
