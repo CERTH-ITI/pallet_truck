@@ -134,14 +134,14 @@
       <origin xyz="${front_laser_x} ${front_laser_y} ${front_laser_z}" rpy="${PI} 0 0"/>
   </xacro:sensor_sick_s300>
 	
-	<!-- Depth camera inside left fork for pallet detection -->
-  <xacro:sensor_r430 camera_id="camera_rear" prefix="${prefix}camera_rear" parent="${prefix}left_fork_wheel_link">
-  	<origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
+	<!-- Human tracking camera -->
+	<xacro:sensor_r430 camera_id="front_camera" prefix="${prefix}front_camera" parent="${prefix}rplidar_laser_base_link">
+    <origin xyz="0.045 0 -0.09" rpy="0 -0.34906585 0"/>
   </xacro:sensor_r430>
 	
-	<!-- RGB-D camera for human detection -->
-	<xacro:sensor_r430 camera_id="camera_front" prefix="${prefix}camera_front" parent="${prefix}rplidar_laser_base_link">
-    <origin xyz="0.045 0 -0.09" rpy="0 -0.34906585 0"/>
+	<!-- Pallet detection camera -->
+  <xacro:sensor_r430 camera_id="rear_camera" prefix="${prefix}rear_camera" parent="${prefix}left_fork_wheel_link">
+  	<origin xyz="-0.181 0 0.029" rpy="0 0 ${PI}"/>
   </xacro:sensor_r430>
 	
   <!-- REGISTERS -->
