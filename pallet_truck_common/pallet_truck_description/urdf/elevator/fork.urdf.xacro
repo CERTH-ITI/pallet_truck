@@ -35,6 +35,12 @@
          <geometry>
            <mesh filename="package://pallet_truck_description/meshes/elevator/single_fork.stl"/>
          </geometry>
+         <friction>
+           <ode>
+             <mu>100</mu>
+             <mu2>100</mu2>
+           </ode>
+         </friction>
        </collision>
      </link>
 
@@ -55,10 +61,18 @@
 
      <!-- FORK LINK -->
      <gazebo reference="${prefix}fork_link">
-       <mu1>100000</mu1>
-       <mu2>100000</mu2>
+       <mu1>100</mu1>
+       <mu2>100</mu2>
        <material>Gazebo/Black</material>
      </gazebo>
+    
+    <joint name="${prefix}fork_sensor_joint" type="fixed">
+       <!-- xyz is estimated, not from cad -->
+       <origin xyz="-1.05 0.00000 0.012941" rpy="0 0 3.14159" />
+       <parent link="${prefix}fork_link"/>
+       <child link="${prefix}fork_sensor_link" />
+     </joint>
+    <link name="${prefix}fork_sensor_link" />
 
   </xacro:macro>
 </robot>
