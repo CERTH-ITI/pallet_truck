@@ -1,0 +1,12 @@
+[submodule "modules/velodyne_simulator"]
+	path = modules/velodyne_simulator
+	url = https://github.com/RobotnikAutomation/velodyne_simulator.git
+[submodule "modules/robotnik_sensors"]
+	path = modules/robotnik_sensors
+	url = https://github.com/RobotnikAutomation/robotnik_sensors
+[submodule "modules/hector_gazebo"]
+	path = modules/hector_gazebo
+	url = https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git
+[submodule "modules/realsense_gazebo_plugin"]
+	path = modules/realsense_gazebo_plugin
+	url = https://github.com/RobotnikAutomation/realsense_gazebo_plugin.git
