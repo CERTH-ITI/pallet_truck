@@ -17,7 +17,7 @@
   <arg name="paused" default="false"/>
   <arg name="headless" default="false"/>
   <arg name="gui" default="true"/>
-	<arg name="execute_certh" default="false"/>
+	<arg name="launch_certh" default="false"/>
 	<arg name="certh_suffix" default="_certh"/>
 	
   <!-- Robot configuration -->
@@ -75,7 +75,7 @@
 	<!-- launch navigation -->
 	<include file="$(find pallet_truck_navigation)/launch/move_base.launch">
 		<arg name="robot_id" value="$(arg robot_id)"/>
-		<arg name="suffix" value="$(eval certh_suffix * execute_certh)"/>
+		<arg name="suffix" value="$(eval certh_suffix * launch_certh)"/>
 	</include>
 	
   <!-- launch rviz -->
