@@ -81,7 +81,7 @@
     <rosparam file="$(arg local_costmap_params_file)" command="load" subst_value="true"/>
 		
     <!-- Global planner params-->
-    <rosparam file="$(arg global_planner_params_file)" command="load" subst_value="true"/>
+    <!-- <rosparam file="$(arg global_planner_params_file)" command="load" subst_value="true"/> -->
 		
     <!-- Local planner params-->
     <rosparam file="$(arg local_planner_params_file)" command="load" subst_value="true"/>
