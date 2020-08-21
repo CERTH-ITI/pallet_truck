@@ -4,9 +4,7 @@ TebLocalPlannerROS:
   odom_topic: robotnik_base_control/odom
   map_frame: $(arg prefix)map
 
-
   # Trajectory
-
   teb_autosize: True
   dt_ref: 0.3
   dt_hysteresis: 0.1
@@ -21,12 +19,11 @@ TebLocalPlannerROS:
   allow_init_with_backwards_motion: true
   exact_arc_length: false
   shrink_horizon_min_duration: 10
-
+  
   # Robot
-
-  max_vel_x: 1.0
-  max_vel_x_backwards: 0.5
-  max_vel_theta: 0.75
+  max_vel_x: 0.5
+  max_vel_x_backwards: 0.25
+  max_vel_theta: 0.3
   max_vel_y: 0 # not used, is differential
   acc_lim_y: 0 # not used, is differential
   acc_lim_x: 0.2
